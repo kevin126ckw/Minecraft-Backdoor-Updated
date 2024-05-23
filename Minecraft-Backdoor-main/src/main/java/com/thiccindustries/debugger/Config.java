@@ -50,7 +50,7 @@ public class Config {
     /* Chat settings */
 
     // message prefix 
-    public static final String chat_message_prefix = "FLOWNG CLIENT";
+    public static final String chat_message_prefix = "FLOWNG BACKDOOR";
 
     // color of messages prefix 
     public static final ChatColor chat_message_prefix_color = ChatColor.GOLD;

