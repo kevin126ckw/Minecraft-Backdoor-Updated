@@ -11,7 +11,7 @@ For educational purposes only. Do not use on a server you do not own.
 
 ## Requirements:
 * Java 8 runtime.
-* Desired target plugin jar file.
+* Desired target plugin jar file
 
 ## GUI Usage:
 * Run backdoor-(version).jar.
